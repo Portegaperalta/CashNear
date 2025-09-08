@@ -3,12 +3,11 @@
 import { APIProvider, Map } from "@vis.gl/react-google-maps"
 import getLatitude from "@/utils/getLatitude"
 import getLongitude from "@/utils/getLongitude"
+import { useState } from "react"
 
 const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 export default function MapContent() {
-  const currentLat = getLatitude()
-  const currentLong = getLongitude()
 
   return (
     <div className="map">

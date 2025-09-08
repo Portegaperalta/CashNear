@@ -1,17 +1,12 @@
 export default async function getLongitude(): Promise<number | undefined> {
-  return new Promise((resolve, reject) => {
-    if ("geolocation" in navigator) {
+  if (!("geolocation" in navigator)) {
+    console.error("Error: geolocation is not supported by browser")
+  } else {
+    return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
-        (location) => {
-          resolve(location.coords.longitude)
-        },
-        (error) => {
-          reject(error)
-        }
+        (location) => resolve(location.coords.longitude),
+        (error) => reject(error)
       )
-    } else {
-      console.error("Error: Geolocation is not supported by browser")
-      resolve(undefined)
-    }
-  })
+    })
+  }
 }
