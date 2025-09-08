@@ -1,7 +1,7 @@
 "use client"
 
-const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 import { APIProvider, Map } from "@vis.gl/react-google-maps"
+const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 export default function MapContent() {
   return (
@@ -11,10 +11,10 @@ export default function MapContent() {
           googleMapsApiKey ? (
             <APIProvider apiKey={googleMapsApiKey!}>
               <Map
-                style={{ width: '100vw', height: '100vh' }}
                 gestureHandling={'greedy'}
-                zoom={10}
+                defaultZoom={18}
                 defaultCenter={{ lat: 22.54992, lng: 0 }}
+                className="h-140 w-full"
               />
             </APIProvider>
           ) : (

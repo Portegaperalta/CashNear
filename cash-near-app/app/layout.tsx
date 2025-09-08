@@ -32,10 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable}`}>
       <body
-        className={`${inter.className} antialiased`}
+        className={`${inter.className}`}
       >
         <Header />
-        <main>
+        <main className="px-4 py-4">
           {children}
         </main>
       </body>
