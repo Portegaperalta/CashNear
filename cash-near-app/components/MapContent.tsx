@@ -12,7 +12,7 @@ export default function MapContent() {
             <APIProvider apiKey={googleMapsApiKey!}>
               <Map
                 gestureHandling={'greedy'}
-                defaultZoom={18}
+                zoom={18}
                 defaultCenter={{ lat: 18.462416, lng: -69.936699 }}
                 className="h-140 w-full"
               />
