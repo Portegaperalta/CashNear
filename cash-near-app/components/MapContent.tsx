@@ -3,11 +3,23 @@
 import { APIProvider, Map } from "@vis.gl/react-google-maps"
 import getLatitude from "@/utils/getLatitude"
 import getLongitude from "@/utils/getLongitude"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 export default function MapContent() {
+  const [currentLat, setCurrentLat] = useState<number | undefined>()
+  const [currentLong, setCurrentLong] = useState<number | undefined>()
+
+  const assignLat = async () => {
+    const lat = await getLatitude()
+    setCurrentLat(lat)
+  }
+
+  const assignLong = async () => {
+    const long = await getLongitude()
+    setCurrentLong(long)
+  }
 
   return (
     <div className="map">
