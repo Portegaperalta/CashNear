@@ -13,7 +13,7 @@ export default function MapContent() {
               <Map
                 gestureHandling={'greedy'}
                 defaultZoom={18}
-                defaultCenter={{ lat: 22.54992, lng: 0 }}
+                defaultCenter={{ lat: 18.462416, lng: -69.936699 }}
                 className="h-140 w-full"
               />
             </APIProvider>
