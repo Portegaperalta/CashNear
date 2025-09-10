@@ -29,10 +29,13 @@ export default function MapContent() {
     }
   }
 
-  const getCurrentLocation = () => {
-    assignLat()
-    assignLong()
-  }
+  useEffect(() => {
+    const getCurrentLocation = async () => {
+      await assignLat()
+      await assignLong()
+    }
+    getCurrentLocation()
+  }, [])
 
   return (
     <div className="map">
