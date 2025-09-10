@@ -46,7 +46,7 @@ export default function MapContent() {
               <Map
                 gestureHandling={'greedy'}
                 zoom={18}
-                center={(currentLat && currentLong) ? { lat: currentLat, lng: currentLong } : { lat: 18.462416, lng: -69.936699 }}
+                center={(currentLat && currentLong) ? { lat: currentLat, lng: currentLong } : { lat: 25.761663, lng: -80.191846 }}
                 className="h-140 w-full"
               />
             </APIProvider>
