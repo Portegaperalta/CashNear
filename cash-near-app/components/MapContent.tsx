@@ -21,6 +21,15 @@ export default function MapContent() {
     setCurrentLong(long)
   }
 
+  const getCurrentLocation = () => {
+    assignLat()
+    assignLong()
+  }
+
+  useEffect(() => {
+    getCurrentLocation()
+  }, [])
+
   return (
     <div className="map">
       <div className="map-content">
