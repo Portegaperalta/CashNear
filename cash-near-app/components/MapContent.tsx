@@ -12,23 +12,27 @@ export default function MapContent() {
   const [currentLong, setCurrentLong] = useState<number | undefined>()
 
   const assignLat = async () => {
-    const lat = await getLatitude()
-    setCurrentLat(lat)
+    try {
+      const lat = await getLatitude()
+      setCurrentLat(lat)
+    } catch (error) {
+      console.error(`Error getting latitude: ${error}`)
+    }
   }
 
   const assignLong = async () => {
-    const long = await getLongitude()
-    setCurrentLong(long)
+    try {
+      const long = await getLongitude()
+      setCurrentLong(long)
+    } catch (error) {
+      console.error(`Error getting longitude: ${error}`)
+    }
   }
 
   const getCurrentLocation = () => {
     assignLat()
     assignLong()
   }
-
-  useEffect(() => {
-    getCurrentLocation()
-  }, [])
 
   return (
     <div className="map">
