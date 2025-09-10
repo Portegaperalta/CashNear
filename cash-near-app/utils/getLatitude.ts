@@ -6,7 +6,12 @@ export default async function getLatitude(): Promise<number | undefined> {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
         (location) => resolve(location.coords.latitude),
-        (error) => reject(error)
+        (error) => reject(error),
+        {
+          enableHighAccuracy: true,
+          timeout: 15000,
+          maximumAge: 0,
+        }
       )
     })
   }
