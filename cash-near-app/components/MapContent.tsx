@@ -78,7 +78,7 @@ export default function MapContent() {
                 mapId={googleMapID}
                 gestureHandling={'greedy'}
                 zoom={18}
-                defaultCenter={{ lat: 25.761663, lng: -80.191846 }}
+                defaultCenter={{ lat: 18.468932, lng: -69.939631 }}
                 className="h-140 w-full"
               >
                 <AutocompleteControl
