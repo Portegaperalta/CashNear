@@ -34,10 +34,7 @@ export default function RootLayout({
       <body
         className={`${inter.className}`}
       >
-        <Header />
-        <main className="px-4 py-4">
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   );

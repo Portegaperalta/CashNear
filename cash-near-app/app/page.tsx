@@ -1,10 +1,15 @@
 import MapContent from "@/components/MapContent";
-import Image from "next/image";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
-    <section className="home">
-      <MapContent />
-    </section>
+    <div className="body-content">
+      <Header />
+      <main className="px-4 py-4">
+        <section className="home">
+          <MapContent />
+        </section>
+      </main>
+    </div>
   );
 }
