@@ -1,2 +1,2 @@
 # CashNear
-Progressive Web App to find the nearest atm near you, made with Next.JS
+Web App to find the nearest atm near you, made with Next.JS
