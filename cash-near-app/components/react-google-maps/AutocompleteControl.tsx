@@ -30,4 +30,4 @@ const AutocompleteControl = ({
   );
 };
 
-export default React.memo(AutocompleteControl);
+export default React.memo(AutocompleteControl)

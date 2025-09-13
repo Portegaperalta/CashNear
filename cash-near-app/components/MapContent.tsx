@@ -77,7 +77,7 @@ export default function MapContent() {
               <Map
                 mapId={googleMapID}
                 gestureHandling={'greedy'}
-                zoom={18}
+                defaultZoom={12}
                 defaultCenter={{ lat: 18.468932, lng: -69.939631 }}
                 className="h-140 w-full"
               >

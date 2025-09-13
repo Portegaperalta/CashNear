@@ -2,6 +2,7 @@
 
 import { AdvancedMarker, Pin, useMap } from '@vis.gl/react-google-maps';
 import React, { useEffect } from 'react';
+import LocateIcon from '../../public/locate-icon.svg'
 
 interface Props {
   place: google.maps.places.Place | null;
@@ -22,8 +23,9 @@ const AutocompleteResult = ({ place }: Props) => {
   return (
     <AdvancedMarker position={place.location}>
       <Pin
-        background={place.iconBackgroundColor}
-        glyph={place.svgIconMaskURI ? new URL(place.svgIconMaskURI) : null}
+        background={'#00B549'}
+        borderColor={'#FFFFFF'}
+        glyphColor={'#FFFFFF'}
       />
     </AdvancedMarker>
   );
