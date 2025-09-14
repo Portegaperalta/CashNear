@@ -12,11 +12,15 @@ const googleMapID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
 
 export type AutocompleteMode = { id: string; label: string };
 
+type MapContentProps = {
+  selectedPlace: any,
+};
+
 const implementations: Array<AutocompleteMode> = [
   { id: 'custom', label: 'Minimal Custom Build' },
 ];
 
-export default function MapContent() {
+export default function MapContent({ selectedPlace }: MapContentProps) {
   // visgl google maps autocomplete state mangement
   const [selectedImplementation, setSelectedImplementation] = useState<AutocompleteMode>(implementations[0]);
 
@@ -37,8 +41,6 @@ export default function MapContent() {
     location.reload();
     return;
   }
-
-  const [selectedPlace, setSelectedPlace] = useState<google.maps.places.Place | null>(null);
 
   // currnet latitude state setter
   const assignLat = async () => {
@@ -84,7 +86,7 @@ export default function MapContent() {
                 <AutocompleteControl
                   controlPosition={ControlPosition.TOP_CENTER}
                   selectedImplementation={selectedImplementation}
-                  onPlaceSelect={setSelectedPlace}
+                  onPlaceSelect={selectedPlace}
                 />
 
                 <AutocompleteResult place={selectedPlace} />
