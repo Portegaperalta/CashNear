@@ -73,23 +73,21 @@ export default function MapContent() {
       <div className="map-content">
         {
           googleMapsApiKey ? (
-            <APIProvider apiKey={googleMapsApiKey!} version="beta">
-              <Map
-                mapId={googleMapID}
-                gestureHandling={'greedy'}
-                defaultZoom={12}
-                defaultCenter={{ lat: 18.468932, lng: -69.939631 }}
-                className="h-140 w-full"
-              >
-                <AutocompleteControl
-                  controlPosition={ControlPosition.TOP_LEFT}
-                  selectedImplementation={selectedImplementation}
-                  onPlaceSelect={setSelectedPlace}
-                />
+            <Map
+              mapId={googleMapID}
+              gestureHandling={'greedy'}
+              defaultZoom={12}
+              defaultCenter={{ lat: 18.468932, lng: -69.939631 }}
+              className="h-140 w-full"
+            >
+              <AutocompleteControl
+                controlPosition={ControlPosition.TOP_LEFT}
+                selectedImplementation={selectedImplementation}
+                onPlaceSelect={setSelectedPlace}
+              />
 
-                <AutocompleteResult place={selectedPlace} />
-              </Map>
-            </APIProvider>
+              <AutocompleteResult place={selectedPlace} />
+            </Map>
           ) : (
             <div className="">
               <p>Loading map....</p>
