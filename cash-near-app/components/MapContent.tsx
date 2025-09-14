@@ -82,7 +82,7 @@ export default function MapContent() {
                 className="h-140 w-full"
               >
                 <AutocompleteControl
-                  controlPosition={ControlPosition.TOP_LEFT}
+                  controlPosition={ControlPosition.TOP_CENTER}
                   selectedImplementation={selectedImplementation}
                   onPlaceSelect={setSelectedPlace}
                 />
