@@ -40,34 +40,6 @@ export default function MapContent() {
     return;
   }
 
-  // currnet latitude state setter
-  const assignLat = async () => {
-    try {
-      const lat = await getLatitude()
-      setCurrentLat(lat)
-    } catch (error) {
-      console.error(`Error getting latitude: ${error}`)
-    }
-  }
-
-  // currnet longitude state setter
-  const assignLong = async () => {
-    try {
-      const long = await getLongitude()
-      setCurrentLong(long)
-    } catch (error) {
-      console.error(`Error getting longitude: ${error}`)
-    }
-  }
-
-  useEffect(() => {
-    const getCurrentLocation = async () => {
-      await assignLat()
-      await assignLong()
-    }
-    getCurrentLocation()
-  }, [])
-
   return (
     <div className="map">
       <div className="map-content">

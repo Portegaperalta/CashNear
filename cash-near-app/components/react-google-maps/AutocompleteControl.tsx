@@ -21,7 +21,7 @@ const AutocompleteControl = ({
 
   return (
     <MapControl position={controlPosition}>
-      <div className="autocomplete-control bg-white">
+      <div className="autocomplete-control py-2 px-4 bg-white">
         {id === 'custom' && (
           <AutocompleteCustom onPlaceSelect={onPlaceSelect} />
         )}
