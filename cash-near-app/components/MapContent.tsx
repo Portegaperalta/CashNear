@@ -1,9 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { APIProvider, Map, ControlPosition } from "@vis.gl/react-google-maps"
-import getLatitude from "@/utils/getLatitude"
-import getLongitude from "@/utils/getLongitude"
 import AutocompleteControl from "./react-google-maps/AutocompleteControl"
 import AutocompleteResult from "./react-google-maps/AutocompleteResult"
 
