@@ -5,8 +5,11 @@ import { APIProvider, Map, ControlPosition } from "@vis.gl/react-google-maps"
 import AutocompleteControl from "./react-google-maps/AutocompleteControl"
 import AutocompleteResult from "./react-google-maps/AutocompleteResult"
 
-const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 const googleMapID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
+
+type MapContentProps = {
+  googleMapsApiKey: string
+}
 
 export type AutocompleteMode = { id: string; label: string };
 
@@ -14,7 +17,7 @@ const implementations: Array<AutocompleteMode> = [
   { id: 'custom', label: 'Minimal Custom Build' },
 ];
 
-export default function MapContent() {
+export default function MapContent({ googleMapsApiKey }: MapContentProps) {
   // visgl google maps autocomplete state mangement
   // visgl google maps autocomplete state mangement
   const [selectedPlace, setSelectedPlace] = useState<google.maps.places.Place | null>(null);
@@ -43,7 +46,7 @@ export default function MapContent() {
       <div className="map-content">
         {
           googleMapsApiKey ? (
-            <APIProvider apiKey={googleMapsApiKey!} version="beta">
+            <APIProvider apiKey={googleMapsApiKey} version="beta">
               <Map
                 mapId={googleMapID}
                 gestureHandling={'greedy'}
