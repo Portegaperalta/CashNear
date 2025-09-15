@@ -1,23 +1,30 @@
 "use client"
 
 import { Search } from "lucide-react"
-import { ControlPosition } from "@vis.gl/react-google-maps"
-import AutocompleteControl from "./react-google-maps/AutocompleteControl"
 
-type SearchFormProps = {
-  selectedPlace: any,
-  selectedImplementation: any,
-}
+export default function SearchForm() {
 
-export default function SearchForm({ selectedPlace, selectedImplementation }: SearchFormProps) {
+  const handleFormSubmission = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
 
   return (
     <div className="search-form">
-      <AutocompleteControl
-        controlPosition={ControlPosition.BOTTOM_CENTER}
-        selectedImplementation={selectedImplementation}
-        onPlaceSelect={selectedPlace}
-      />
+      <form
+        onSubmit={handleFormSubmission}
+        className="px-2 flex flex-row-reverse gap-2 items-center bg-(--clr-white) rounded-md">
+        <input
+          type="text"
+          placeholder="City,Zip code or Address"
+          className="py-2 outline-none w-full"
+        />
+        <button
+          type="submit"
+          className="text-gray-400"
+        >
+          <Search />
+        </button>
+      </form>
     </div>
   )
 }
