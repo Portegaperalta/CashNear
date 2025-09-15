@@ -13,13 +13,10 @@ const implementations: Array<AutocompleteMode> = [
 
 export default function Home() {
   return (
-    <div className="body-content">
-      <Header />
-      <main className="px-4 py-4">
-        <section className="map">
-          <MapContent />
-        </section>
-      </main>
-    </div>
+    <main className="px-4 py-4">
+      <section className="map">
+        <MapContent />
+      </section>
+    </main>
   );
 }
