@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
       <main className="px-4 py-4">
         <section className="map">
-          <MapContent selectedPlace={selectedPlace} />
+          <MapContent />
         </section>
       </main>
     </div>
