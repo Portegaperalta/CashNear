@@ -23,10 +23,6 @@ export default function MapContent({ googleMapsApiKey }: MapContentProps) {
   const [selectedPlace, setSelectedPlace] = useState<google.maps.places.Place | null>(null);
   const [selectedImplementation, setSelectedImplementation] = useState<AutocompleteMode>(implementations[0]);
 
-  //current latitude and longitude state management
-  const [currentLat, setCurrentLat] = useState<number | undefined>();
-  const [currentLong, setCurrentLong] = useState<number | undefined>();
-
   const incompatibleVersionLoaded = Boolean(
     globalThis &&
     globalThis.google?.maps?.version &&
