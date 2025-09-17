@@ -24,7 +24,6 @@ export default function SearchForm() {
           className={`py-2 px-2 outline-none w-full bg-white 
             ${input === '' ? `rounded-md` : `rounded-t-md`}`}
         />
-
       </div>
       <div className="search-form-results">
         <ul className={`suggestions-list py-2 px-2 w-full flex flex-col
