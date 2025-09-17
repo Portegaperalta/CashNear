@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { APIProvider, Map, ControlPosition } from "@vis.gl/react-google-maps"
+import { Map } from "@vis.gl/react-google-maps"
 import AutocompleteResult from "./react-google-maps/AutocompleteResult"
 
 const googleMapID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
@@ -12,15 +12,9 @@ type MapContentProps = {
 
 export type AutocompleteMode = { id: string; label: string };
 
-const implementations: Array<AutocompleteMode> = [
-  { id: 'custom', label: 'Minimal Custom Build' },
-];
-
 export default function MapContent({ googleMapsApiKey }: MapContentProps) {
-  // visgl google maps autocomplete state mangement
-  // visgl google maps autocomplete state mangement
+  // visgl google maps autocomplete result state mangement
   const [selectedPlace, setSelectedPlace] = useState<google.maps.places.Place | null>(null);
-  const [selectedImplementation, setSelectedImplementation] = useState<AutocompleteMode>(implementations[0]);
 
   const incompatibleVersionLoaded = Boolean(
     globalThis &&
