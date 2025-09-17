@@ -2,6 +2,7 @@
 
 import { useAutocompleteSuggestions } from "@/hooks/use-autocomplete-suggestions"
 import React, { useState } from "react"
+import { X } from "lucide-react";
 
 export default function SearchForm() {
   const [input, setInput] = useState<string>('');
@@ -15,15 +16,18 @@ export default function SearchForm() {
 
   return (
     <div className="search-form">
-      <div className="search-form-input">
+      <div className={`search-form-input py-2 px-2 flex w-full 
+      bg-white ${input === '' ? `rounded-md ` : `rounded-t-md`}`}>
         <input
           type="text"
           value={input}
           onChange={handleInputChange}
           placeholder="City,Zip code or Address"
-          className={`py-2 px-2 outline-none w-full bg-white 
-            ${input === '' ? `rounded-md` : `rounded-t-md`}`}
+          className={`outline-none w-full`}
         />
+        <button type="button">
+          <X />
+        </button>
       </div>
       <div className="search-form-results">
         <ul className={`suggestions-list py-2 px-2 w-full flex flex-col
