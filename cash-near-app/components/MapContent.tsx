@@ -50,11 +50,6 @@ export default function MapContent({ googleMapsApiKey }: MapContentProps) {
                 defaultCenter={{ lat: 18.468932, lng: -69.939631 }}
                 className="h-140 w-full"
               >
-                <AutocompleteControl
-                  controlPosition={ControlPosition.TOP_CENTER}
-                  selectedImplementation={selectedImplementation}
-                  onPlaceSelect={setSelectedPlace}
-                />
                 <AutocompleteResult place={selectedPlace} />
               </Map>
             </APIProvider>

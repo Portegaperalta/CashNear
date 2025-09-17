@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import MapContent from "@/components/MapContent";
 
 const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
