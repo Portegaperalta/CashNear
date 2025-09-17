@@ -15,32 +15,30 @@ export default function SearchForm() {
 
   return (
     <div className="search-form">
-      <div className="flex flex-col">
-        <input
-          type="text"
-          value={input}
-          onChange={handleInputChange}
-          placeholder="City,Zip code or Address"
-          className={`py-2 px-2 outline-none w-full bg-white 
+      <input
+        type="text"
+        value={input}
+        onChange={handleInputChange}
+        placeholder="City,Zip code or Address"
+        className={`py-2 px-2 outline-none w-full bg-white 
             ${input === '' ? `rounded-md` : `rounded-t-md`}`}
-        />
-        <ul className={`suggestions-list py-2 px-2 flex flex-col
+      />
+      <ul className={`suggestions-list py-2 px-2 w-full flex flex-col
          bg-white rounded-b-md ${input === '' ? `hidden` : `inline-block`}`}>
-          {
-            suggestions.length > 0 ? (
-              suggestions.map((suggestion) => (
-                <li key={suggestion.placePrediction?.placeId}>
-                  {suggestion.placePrediction?.text.text}
-                </li>
-              ))
-            ) : (
-              <li>
-                No results
+        {
+          suggestions.length > 0 ? (
+            suggestions.map((suggestion) => (
+              <li key={suggestion.placePrediction?.placeId}>
+                {suggestion.placePrediction?.text.text}
               </li>
-            )
-          }
-        </ul>
-      </div>
+            ))
+          ) : (
+            <li>
+              No results
+            </li>
+          )
+        }
+      </ul>
     </div>
   )
 }
