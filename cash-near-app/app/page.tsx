@@ -3,6 +3,7 @@
 import { APIProvider } from "@vis.gl/react-google-maps";
 import Header from "@/components/Header";
 import MapContent from "@/components/MapContent";
+import Footer from "@/components/Footer";
 
 const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
@@ -16,6 +17,7 @@ export default function Home() {
             <MapContent googleMapsApiKey={googleMapsApiKey!} />
           </section>
         </main>
+        <Footer />
       </APIProvider>
     </div>
   );
