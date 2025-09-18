@@ -14,6 +14,10 @@ export default function SearchForm() {
     setInput(e.target.value);
   }
 
+  const handleInputClear = () => {
+    setInput('')
+  }
+
   return (
     <div className="search-form">
       <div className={`search-form-input py-2 px-2 flex w-full 
@@ -25,7 +29,11 @@ export default function SearchForm() {
           placeholder="City,Zip code or Address"
           className={`outline-none w-full`}
         />
-        <button type="button">
+        <button
+          type="button"
+          onClick={handleInputClear}
+          className="clear-input-button cursor-pointer"
+        >
           <X />
         </button>
       </div>
