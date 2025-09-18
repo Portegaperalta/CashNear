@@ -15,12 +15,13 @@ export default function SearchForm() {
   }
 
   const handleInputClear = () => {
-    setInput('')
+    setInput('');
   }
 
   return (
     <div className="search-form">
-      <div className={`search-form-input py-2 px-2 flex w-full 
+      <div
+        className={`search-form-input py-2 px-2 flex w-full 
       bg-white ${input === '' ? `rounded-md ` : `rounded-t-md`}`}>
         <input
           type="text"
@@ -32,7 +33,8 @@ export default function SearchForm() {
         <button
           type="button"
           onClick={handleInputClear}
-          className="clear-input-button cursor-pointer"
+          className={`clear-input-button cursor-pointer
+          ${input ? `inline-block` : `hidden`}`}
         >
           <X />
         </button>
