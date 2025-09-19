@@ -8,7 +8,7 @@ export default function SearchForm() {
   const [input, setInput] = useState<string>('');
 
   // use of the autocomplete-suggestions hook from visgl react-google-maps
-  const { suggestions, isLoading, resetSession } = useAutocompleteSuggestions(input);
+  const { suggestions, isLoading } = useAutocompleteSuggestions(input);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
