@@ -51,6 +51,7 @@ export default function SearchForm() {
               suggestions.map((suggestion) => (
                 <li
                   key={suggestion.placePrediction?.placeId}
+                  onClick={handleSuggestionClick}
                   className="px-2 cursor-pointer hover:bg-(--clr-gray-hover)"
                 >
                   {suggestion.placePrediction?.text.text}
