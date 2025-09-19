@@ -1,7 +1,7 @@
 "use client"
 
-import { useAutocompleteSuggestions } from "@/hooks/use-autocomplete-suggestions"
 import React, { useState } from "react"
+import { useAutocompleteSuggestions } from "@/hooks/use-autocomplete-suggestions"
 import { X } from "lucide-react";
 
 export default function SearchForm() {
