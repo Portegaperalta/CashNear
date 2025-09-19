@@ -28,7 +28,7 @@ export default function SearchForm() {
           value={input}
           onChange={handleInputChange}
           placeholder="City,Zip code or Address"
-          className={`outline-none w-full`}
+          className={`px-2 outline-none w-full`}
         />
         <button
           type="button"
@@ -45,7 +45,10 @@ export default function SearchForm() {
           {
             suggestions.length > 0 ? (
               suggestions.map((suggestion) => (
-                <li key={suggestion.placePrediction?.placeId}>
+                <li
+                  key={suggestion.placePrediction?.placeId}
+                  className="px-2 cursor-pointer hover:bg-(--clr-gray-hover)"
+                >
                   {suggestion.placePrediction?.text.text}
                 </li>
               ))
