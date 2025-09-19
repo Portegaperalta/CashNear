@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Map } from "@vis.gl/react-google-maps"
 import AutocompleteResult from "./react-google-maps/AutocompleteResult"
 import getPlaceFromId from "@/utils/getPlaceFromId"
+import getFromSessionStorage from "@/utils/getFromSessionStorage"
 
 const googleMapID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
 
