@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { useAutocompleteSuggestions } from "@/hooks/use-autocomplete-suggestions"
 import { X } from "lucide-react";
+import saveToSessionStorage from "@/utils/saveToSessionStorage";
 
 export default function SearchForm() {
   const [input, setInput] = useState<string>('');
@@ -15,7 +16,9 @@ export default function SearchForm() {
   }
 
   const handleSuggestionClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    const placeId = e.currentTarget.getAttribute('data-key');
     setInput(e.currentTarget.textContent);
+    saveToSessionStorage('placeId', placeId);
   }
 
   const handleInputClear = () => {
@@ -51,6 +54,7 @@ export default function SearchForm() {
               suggestions.map((suggestion) => (
                 <li
                   key={suggestion.placePrediction?.placeId}
+                  data-key={suggestion.placePrediction?.placeId}
                   onClick={handleSuggestionClick}
                   className="px-2 cursor-pointer hover:bg-(--clr-gray-hover)"
                 >
