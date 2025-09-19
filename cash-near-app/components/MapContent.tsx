@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Map } from "@vis.gl/react-google-maps"
 import AutocompleteResult from "./react-google-maps/AutocompleteResult"
 import getPlaceFromId from "@/utils/getPlaceFromId"
@@ -15,22 +15,10 @@ type MapContentProps = {
 export type AutocompleteMode = { id: string; label: string };
 
 export default function MapContent({ googleMapsApiKey }: MapContentProps) {
+  const placeID = getFromSessionStorage('placeId');
+
   // visgl google maps autocomplete result state mangement
   const [selectedPlace, setSelectedPlace] = useState<google.maps.places.Place | null>(null);
-
-  const incompatibleVersionLoaded = Boolean(
-    globalThis &&
-    globalThis.google?.maps?.version &&
-    !(
-      globalThis.google?.maps?.version.endsWith('-alpha') ||
-      globalThis.google?.maps?.version.endsWith('-beta')
-    )
-  );
-
-  if (incompatibleVersionLoaded) {
-    location.reload();
-    return;
-  }
 
   return (
     <div className="map">
