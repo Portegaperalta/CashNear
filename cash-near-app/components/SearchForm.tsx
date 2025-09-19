@@ -14,6 +14,10 @@ export default function SearchForm() {
     setInput(e.target.value);
   }
 
+  const handleSuggestionClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    setInput(e.currentTarget.textContent)
+  }
+
   const handleInputClear = () => {
     setInput('');
   }
