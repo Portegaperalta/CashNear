@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import { Map } from "@vis.gl/react-google-maps"
 import AutocompleteResult from "./react-google-maps/AutocompleteResult"
 import getPlaceFromId from "@/utils/getPlaceFromId"
-import getFromSessionStorage from "@/utils/getFromSessionStorage"
 
 const googleMapID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
 
@@ -15,17 +14,6 @@ type MapContentProps = {
 export type AutocompleteMode = { id: string; label: string };
 
 export default function MapContent({ googleMapsApiKey }: MapContentProps) {
-
-  const placeID = getFromSessionStorage('placeId');
-
-  const fetchSelectedPlace = async () => {
-    const place = await getPlaceFromId(placeID)
-    if (!place) {
-      return null
-    } else {
-      return place
-    }
-  }
 
   // visgl google maps autocomplete result state mangement
   const [selectedPlace, setSelectedPlace] = useState<google.maps.places.Place | null>(null);
