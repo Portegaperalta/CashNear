@@ -5,7 +5,11 @@ import { useAutocompleteSuggestions } from "@/hooks/use-autocomplete-suggestions
 import { X } from "lucide-react";
 import saveToSessionStorage from "@/utils/saveToSessionStorage";
 
-export default function SearchForm() {
+type SearchFormProps = {
+  onSuggestionClick: () => void;
+}
+
+export default function SearchForm({ onSuggestionClick }: SearchFormProps) {
   const [input, setInput] = useState<string>('');
 
   // use of the autocomplete-suggestions hook from visgl react-google-maps
