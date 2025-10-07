@@ -2,7 +2,11 @@ import HeaderOptions from "./HeaderOptions";
 import SearchForm from "./SearchForm";
 import Logo from "./ui/Logo";
 
-export default function Header() {
+type HeaderProps = {
+  onSearchFormSubmit: (placeID: string | null) => void;
+}
+
+export default function Header({ onSearchFormSubmit }: HeaderProps) {
   return (
     <header className="px-10 py-4 space-y-4 bg-(--clr-primary) shadow-sm">
       <div className="header-top flex flex-row items-center
@@ -11,7 +15,7 @@ export default function Header() {
         <HeaderOptions />
       </div>
       <div className="header-bottom">
-        <SearchForm />
+        <SearchForm onSuggestionClick={onSearchFormSubmit} />
       </div>
     </header>
   )

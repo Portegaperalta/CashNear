@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 import saveToSessionStorage from "@/utils/saveToSessionStorage";
 
 type SearchFormProps = {
-  onSuggestionClick: () => void;
+  onSuggestionClick: (placeID: string | null) => void;
 }
 
 export default function SearchForm({ onSuggestionClick }: SearchFormProps) {
@@ -22,7 +22,7 @@ export default function SearchForm({ onSuggestionClick }: SearchFormProps) {
   const handleSuggestionClick = (e: React.MouseEvent<HTMLLIElement>) => {
     const placeId = e.currentTarget.getAttribute('data-key');
     setInput(e.currentTarget.textContent);
-    saveToSessionStorage('placeId', placeId);
+    onSuggestionClick(placeId);
   }
 
   const handleInputClear = () => {
