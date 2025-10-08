@@ -2,7 +2,6 @@
 
 import { AdvancedMarker, Pin, useMap } from '@vis.gl/react-google-maps';
 import React, { useEffect } from 'react';
-import LocateIcon from '../../public/locate-icon.svg'
 
 interface Props {
   place: google.maps.places.Place | null;
