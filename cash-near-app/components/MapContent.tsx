@@ -8,12 +8,13 @@ import getPlaceFromId from "@/utils/getPlaceFromId"
 const googleMapID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
 
 type MapContentProps = {
-  googleMapsApiKey: string
+  googleMapsApiKey: string,
+  placeID: string | null,
 }
 
 export type AutocompleteMode = { id: string; label: string };
 
-export default function MapContent({ googleMapsApiKey }: MapContentProps) {
+export default function MapContent({ googleMapsApiKey, placeID }: MapContentProps) {
 
   // visgl google maps autocomplete result state mangement
   const [selectedPlace, setSelectedPlace] = useState<google.maps.places.Place | null>(null);

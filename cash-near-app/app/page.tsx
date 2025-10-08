@@ -25,7 +25,10 @@ export default function Home() {
         <Header onSearchFormSubmit={updatePlaceID} />
         <main className="px-4 py-4">
           <section className="map">
-            <MapContent googleMapsApiKey={googleMapsApiKey!} />
+            <MapContent
+              googleMapsApiKey={googleMapsApiKey!}
+              placeID={selectedPlaceID}
+            />
           </section>
         </main>
         <Footer />
