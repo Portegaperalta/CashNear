@@ -34,7 +34,7 @@ export default function Home() {
           <section className="map">
             <MapContent
               googleMapsApiKey={googleMapsApiKey!}
-              placeID={selectedPlaceID}
+              selectedPlace={place}
             />
           </section>
         </main>

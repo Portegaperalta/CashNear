@@ -1,23 +1,19 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Map } from "@vis.gl/react-google-maps"
 import AutocompleteResult from "./react-google-maps/AutocompleteResult"
-import getPlaceFromId from "@/utils/getPlaceFromId"
 
 const googleMapID = process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
 
 type MapContentProps = {
   googleMapsApiKey: string,
-  placeID: string | null,
+  selectedPlace: google.maps.places.Place | null,
 }
 
 export type AutocompleteMode = { id: string; label: string };
 
-export default function MapContent({ googleMapsApiKey, placeID }: MapContentProps) {
-
-  // visgl google maps autocomplete result state mangement
-  const [selectedPlace, setSelectedPlace] = useState<google.maps.places.Place | null>(null);
+export default function MapContent({ googleMapsApiKey, selectedPlace }: MapContentProps) {
 
   return (
     <div className="map">
