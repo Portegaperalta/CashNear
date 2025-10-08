@@ -11,7 +11,7 @@ const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
 
 export default function Home() {
   const [selectedPlaceID, setSelectedPlaceID] = useState<string | null>('');
-  const [place, setPlace] = useState<google.maps.places.Place | null>();
+  const [place, setPlace] = useState<google.maps.places.Place | null>(null);
 
   const updatePlaceID = (placeID: string | null) => {
     setSelectedPlaceID(placeID);
