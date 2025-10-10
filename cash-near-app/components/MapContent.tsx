@@ -14,15 +14,15 @@ type MapContentProps = {
 export type AutocompleteMode = { id: string; label: string };
 
 export default function MapContent({ googleMapsApiKey, selectedPlace }: MapContentProps) {
-  const [selectedPlaceLat, setSelectedPlaceLat] = useState<number>(0);
-  const [selectedPlaceLng, setSelectedPlaceLng] = useState<number>(0);
+  const [selectedPlaceLat, setSelectedPlaceLat] = useState<number | undefined>(0);
+  const [selectedPlaceLng, setSelectedPlaceLng] = useState<number | undefined>(0);
 
   // updates latitude and longitude states each time 
   //selectedPlace Prop changes
   useEffect(() => {
     if (selectedPlace != null) {
-      setSelectedPlaceLat(selectedPlace.Dg.location.lat);
-      setSelectedPlaceLng(selectedPlace.Dg.location.lng);
+      setSelectedPlaceLat(selectedPlace.location?.lat());
+      setSelectedPlaceLng(selectedPlace.location?.lng());
     }
   }, [selectedPlace])
 
@@ -35,7 +35,9 @@ export default function MapContent({ googleMapsApiKey, selectedPlace }: MapConte
               mapId={googleMapID}
               gestureHandling={'greedy'}
               defaultZoom={18}
-              center={{ lat: selectedPlaceLat, lng: selectedPlaceLng }}
+              center={(selectedPlaceLat && selectedPlaceLng) ?
+                { lat: selectedPlaceLat, lng: selectedPlaceLng } :
+                { lat: 18.465563, lng: -69.930286 }}
               className="h-140 w-full"
             >
               <AutocompleteResult place={selectedPlace} />
