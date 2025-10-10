@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Map } from "@vis.gl/react-google-maps"
 import AutocompleteResult from "./react-google-maps/AutocompleteResult"
 
@@ -14,6 +14,8 @@ type MapContentProps = {
 export type AutocompleteMode = { id: string; label: string };
 
 export default function MapContent({ googleMapsApiKey, selectedPlace }: MapContentProps) {
+  const [selectedPlaceLat, setSelectedPlaceLat] = useState<number>(0);
+  const [selectedPlaceLng, setSelectedPlaceLng] = useState<number>(0);
 
   return (
     <div className="map">
