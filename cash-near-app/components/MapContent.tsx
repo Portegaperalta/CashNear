@@ -17,6 +17,15 @@ export default function MapContent({ googleMapsApiKey, selectedPlace }: MapConte
   const [selectedPlaceLat, setSelectedPlaceLat] = useState<number>(0);
   const [selectedPlaceLng, setSelectedPlaceLng] = useState<number>(0);
 
+  // updates latitude and longitude states each time 
+  //selectedPlace Prop changes
+  useEffect(() => {
+    if (selectedPlace != null) {
+      setSelectedPlaceLat(selectedPlace.Dg.location.lat);
+      setSelectedPlaceLng(selectedPlace.Dg.location.lng);
+    }
+  }, [selectedPlace])
+
   return (
     <div className="map">
       <div className="map-content">
@@ -25,7 +34,8 @@ export default function MapContent({ googleMapsApiKey, selectedPlace }: MapConte
             <Map
               mapId={googleMapID}
               gestureHandling={'greedy'}
-              defaultZoom={12}
+              defaultZoom={18}
+              center={{ lat: selectedPlaceLat, lng: selectedPlaceLng }}
               defaultCenter={{ lat: 18.468932, lng: -69.939631 }}
               className="h-140 w-full"
             >
