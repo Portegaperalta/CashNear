@@ -36,7 +36,6 @@ export default function MapContent({ googleMapsApiKey, selectedPlace }: MapConte
               gestureHandling={'greedy'}
               defaultZoom={18}
               center={{ lat: selectedPlaceLat, lng: selectedPlaceLng }}
-              defaultCenter={{ lat: 18.468932, lng: -69.939631 }}
               className="h-140 w-full"
             >
               <AutocompleteResult place={selectedPlace} />
