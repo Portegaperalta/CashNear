@@ -46,7 +46,7 @@ const visaPassword = process.env.VISA_PASSWORD;
 const endPoint: string = "/globalatmlocator/v3/localatms/totalsinquiry";
 const baseUrl: string = `https://sandbox.api.visa.com${endPoint}`;
 
-function fetchNearbyAtms(latitude: string, longitude: string, maxResults: number = 10) {
+async function fetchNearbyAtms(latitude: string, longitude: string, maxResults: number = 10) {
   const Request: PostRequest = {
     requestData: {
       distance: 20,
