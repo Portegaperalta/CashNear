@@ -79,6 +79,8 @@ function fetchNearbyAtms(latitude: string, longitude: string, maxResults: number
       }
     }
   }
+
+  const response = 
 }
 
 export default fetchNearbyAtms
