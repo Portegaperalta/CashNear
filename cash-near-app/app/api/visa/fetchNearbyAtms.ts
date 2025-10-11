@@ -1,3 +1,5 @@
+import axios from "axios";
+
 type PostRequest = {
   requestData: {
     distance: number,
@@ -79,8 +81,6 @@ function fetchNearbyAtms(latitude: string, longitude: string, maxResults: number
       }
     }
   }
-
-  const response = 
 }
 
 export default fetchNearbyAtms
